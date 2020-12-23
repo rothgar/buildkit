@@ -1,4 +1,4 @@
-package aws
+package ssm
 
 import (
 	"net/url"
@@ -9,14 +9,14 @@ import (
 
 func TestSpecFromURL(t *testing.T) {
 	cases := map[string]*Spec{
-		"aws://profilename": {
+		"ssm://profilename": {
 			Profile: "profilename",
 		},
-		"aws://profilename?region=region": {
+		"ssm://profilename?region=region": {
 			Region: "region",
 		},
 		// Need to actually test this with env variables
-		"aws://": nil,
+		"ssm://": nil,
 	}
 	for s, expected := range cases {
 		u, err := url.Parse(s)

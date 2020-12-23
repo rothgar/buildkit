@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"os"
 
-	_ "github.com/moby/buildkit/client/connhelper/aws"
 	_ "github.com/moby/buildkit/client/connhelper/dockercontainer"
 	_ "github.com/moby/buildkit/client/connhelper/kubepod"
 	_ "github.com/moby/buildkit/client/connhelper/podmancontainer"
 	_ "github.com/moby/buildkit/client/connhelper/ssh"
+	_ "github.com/moby/buildkit/client/connhelper/ssm"
 	bccommon "github.com/moby/buildkit/cmd/buildctl/common"
 	"github.com/moby/buildkit/solver/errdefs"
 	"github.com/moby/buildkit/util/apicaps"

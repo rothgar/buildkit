@@ -1,5 +1,5 @@
-// Package aws provides connhelper for aws://<profile>
-package aws
+// Package ssm provides connhelper for ssm://<instance>
+package ssm
 
 import (
 	"context"
@@ -13,10 +13,10 @@ import (
 )
 
 func init() {
-	connhelper.Register("aws", Helper)
+	connhelper.Register("ssm", Helper)
 }
 
-// Helper returns helper for connecting to an AWS account.
+// Helper returns helper for connecting to an AWS instance via session manager.
 // Requires BuildKit v0.5.0 or later in the pod.
 func Helper(u *url.URL) (*connhelper.ConnectionHelper, error) {
 	sp, err := SpecFromURL(u)
@@ -40,7 +40,7 @@ type Spec struct {
 }
 
 // SpecFromURL creates Spec from URL.
-// URL is like aws://instance?profile=<profile>,region=<region>
+// URL is like ssm://instance?profile=<profile>,region=<region>
 // Only <instance> part is mandatory.
 func SpecFromURL(u *url.URL) (*Spec, error) {
 	q := u.Query()
